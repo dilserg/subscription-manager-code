@@ -3,15 +3,19 @@ import styles from './Percentages.module.css'
 import {VictoryAnimation, VictoryLabel, VictoryPie} from "victory"
 
 const Percentages = ({totalIncome, totalPrice}) => {
+
   const getPercentages = (totalIncome, totalPrice) =>{
     let percents;
+
     if(totalIncome < totalPrice){
       percents = 100;
     }else{
       percents = (totalPrice/ totalIncome) * 100;
     }
+
     return percents;
   }
+
   const getData = (totalIncome,totalPrice) =>{
     let percents = getPercentages(totalIncome, totalPrice);
     return [{x: 1, y:percents}, {x: 2, y: 100 - percents}];

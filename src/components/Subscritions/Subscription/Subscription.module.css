@@ -13,6 +13,7 @@
 }
 .subscription button{
     box-sizing: border-box;
+
 }
 .icon{
     font-weight: 700;
@@ -40,7 +41,6 @@
     grid-area: date;
 }
 .editImage{
-
 }
 .removeImage{
 
@@ -62,12 +62,22 @@
     grid-area: remove;
 }
 .submitButton{
+    margin-left: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: #f3f3f3;
     grid-area: edit;
 }
 .cancelButton{
+    cursor: pointer;
+    border: none;
+    background-color: #f3f3f3;
     grid-area: remove;
 }
 .subscription:hover .hoverButton{
     opacity: 1;
     visibility: visible;
+}
+.subscription:hover .submitButton,.subscription:hover .cancelButton{
+    background-color: white;
 }

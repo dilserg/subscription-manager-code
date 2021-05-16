@@ -1,5 +1,6 @@
-import React from 'react';
+import React from 'react'
 import styles from './Info.module.css'
+import settings from '../../../images/settings.svg'
 
 const Info = ({name,photo}) => {
   return (
@@ -8,7 +9,7 @@ const Info = ({name,photo}) => {
         <img alt="" src={photo || "https://cencup.com/wp-content/uploads/2019/07/avatar-placeholder.png"}/>
       </div>
       <div className={styles.name}>{name}</div>
-      <button className={styles.settings}>settings</button>
+      <button className={styles.settings}><img className={styles.settingsImage} alt="" src={settings} height='30px'/></button>
     </div>
   );
 };

@@ -10,6 +10,18 @@
     margin-left: 20px;
 }
 .settings{
+    border-radius: 10px;
+    transition: all ease 0.5s;
+    padding: 5px 5px 2px;
+    cursor: pointer;
+    background-color: #f3f3f3;
+    border: none;
     position: absolute;
     right: 0;
+}
+.settings:hover .settingsImage{
+    filter: invert(1);
+}
+.settings:hover{
+    background-color: black;
 }

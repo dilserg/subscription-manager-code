@@ -1,5 +1,5 @@
 .profile{
     padding: 50px;
     display: grid;
-    grid-template-rows: 100px minmax(1fr, 500px) minmax(1fr, 500px);
+    grid-template-rows: 100px minmax(1fr, 1000px) minmax(1fr, 1000px);
 }
