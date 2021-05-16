@@ -1,0 +1,15 @@
+.info{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.photo img{
+    height: 70px;
+}
+.name{
+    margin-left: 20px;
+}
+.settings{
+    position: absolute;
+    right: 0;
+}

@@ -1,0 +1,27 @@
+.subscription{
+    display: grid;
+    grid-template-areas: "icon title price date add cancel";
+    grid-template-columns: 60px 1fr 1fr 1fr 25px 25px;
+}
+.icon{
+    grid-area: icon;
+}
+.title{
+    grid-area: title;
+}
+.price{
+    width: 2.5rem;
+    justify-self: center;
+    grid-area: price;
+}
+.date{
+    width: 2rem;
+    justify-self: end;
+    grid-area: date;
+}
+.addButton{
+    grid-area: add;
+}
+.cancelButton{
+    grid-area: cancel;
+}

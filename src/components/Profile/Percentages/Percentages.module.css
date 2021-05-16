@@ -1,0 +1,10 @@
+.percentages{
+    background-color: white;
+    border-radius: 10px;
+    border: gray 5px solid;
+}
+.text{
+    position: relative;
+    top: 30px;
+    text-align: center;
+}

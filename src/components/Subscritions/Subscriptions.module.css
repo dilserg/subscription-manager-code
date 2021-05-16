@@ -1,0 +1,56 @@
+.subscriptions{
+    padding: 60px 70px;
+}
+.header{
+    display: flex;
+    margin-bottom: 30px;
+    justify-content: space-between;
+}
+.header_title{
+    font-size: 20px;
+}
+.plusImage{
+    transition: all ease 0.2s;
+    margin-right: 2px;
+}
+.header_button{
+    transition: all ease 0.2s;
+    border-color: black;
+    padding-top: 5px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    width: 60px;
+    height: 30px;
+    background-color: #f3f3f3;
+    border-radius: 7px;
+}
+.header_button:hover{
+    background-color: black;
+    color: white;
+}
+.header_button:hover .plusImage{
+    filter: invert(1);
+}
+.titles{
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 60px 1fr 1fr 1fr 50px;
+    grid-template-areas: ". service price day .";
+}
+.day{
+    justify-self: end;
+    grid-area: day;
+}
+.price{
+    justify-self: center;
+    grid-area: price;
+}
+.service{
+    grid-area: service;
+}
+.line{
+    height: 1px;
+    background-color: black;
+    margin: 10px 0;
+}
