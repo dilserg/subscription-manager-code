@@ -1,7 +1,8 @@
 .subscription{
+    padding: 0 20px;
     display: grid;
-    grid-template-areas: "icon title price date add cancel";
-    grid-template-columns: 60px 1fr 1fr 1fr 25px 25px;
+    grid-template-areas: "icon title price date add . cancel";
+    grid-template-columns: 60px 1fr 1fr 1fr 25px 5px 25px;
 }
 .icon{
     grid-area: icon;
@@ -10,18 +11,26 @@
     grid-area: title;
 }
 .price{
-    width: 2.5rem;
+    text-align: center;
     justify-self: center;
+    width: 3rem;
     grid-area: price;
 }
 .date{
-    width: 2rem;
+    text-align: center;
+    width: 4rem;
     justify-self: end;
     grid-area: date;
 }
 .addButton{
+    cursor: pointer;
+    border: none;
+    background-color: #f3f3f3;
     grid-area: add;
 }
 .cancelButton{
+    cursor: pointer;
+    border: none;
+    background-color: #f3f3f3;
     grid-area: cancel;
 }

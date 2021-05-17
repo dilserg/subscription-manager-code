@@ -2,6 +2,8 @@ import React from 'react'
 import styles from './AddSubscription.module.css'
 import {connect} from "react-redux"
 import {addSubAC} from "../../../state/SubscriptionsReducer"
+import tick from '../../../images/tick.svg';
+import cross from '../../../images/cross.svg'
 
 const AddSubscription = ({addSub,setShowInput}) => {
   const day = new Date();
@@ -37,15 +39,23 @@ const AddSubscription = ({addSub,setShowInput}) => {
     hideInputs();
     addSub(title, price, date)
   }
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    addSubClickHandler();
+  }
 
   return (
-    <div className={styles.subscription}>
-      <input value={title} onChange={titleChangeHandler} className={styles.title}/>
-      <input type="number" value={price} onChange={priceChangeHandler} className={styles.price}/>
-      <input type="number" value={date} onChange={dateChangeHandler} className={styles.date}/>
-      <button className={styles.addButton} onClick={addSubClickHandler}>+</button>
-      <button className={styles.cancelButton} onClick={hideInputs}>-</button>
-    </div>
+      <form className={styles.subscription} onSubmit={handleSubmit}>
+        <input value={title} onChange={titleChangeHandler} className={styles.title}/>
+        <input type="number" value={price} onChange={priceChangeHandler} className={styles.price}/>
+        <input type="number" value={date} onChange={dateChangeHandler} className={styles.date}/>
+        <button className={styles.addButton} onClick={addSubClickHandler}>
+          <img alt="" width="20px" src={tick}/>
+        </button>
+        <button className={styles.cancelButton} onClick={hideInputs}>
+          <img src={cross} width="20px" alt=""/>
+        </button>
+      </form>
   )
 }
 

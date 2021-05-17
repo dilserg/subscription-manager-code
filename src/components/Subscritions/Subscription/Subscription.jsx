@@ -42,32 +42,38 @@ const Subscription = ({title, price, id, date, removeSub, editSub}) => {
     setEditMode(false)
   }
 
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    editButtonHandler();
+  }
+
+  if (editMode){
+    return (
+      <form className={styles.subscription} onSubmit={handleSubmit}>
+         <input value={titleEdit} onChange={titleEditHandler} className={styles.title}/>
+         <input value={priceEdit} type="number" onChange={priceEditHandler} className={styles.price}/>
+         <input value={dateEdit} type="number" onChange={dateEditHandler} className={styles.date}/>
+         {/*TODO: добавить галочку и крестик(согласиться и вернуть как было)*/}
+         <button onClick={editButtonHandler} className={styles.submitButton}>
+           <img className={styles.editImage} width='20px' alt="" src={tick}/></button>
+         <button onClick={cancelButtonHandler} className={styles.cancelButton}>
+           <img className={styles.editImage} width='20px' alt="" src={cross}/></button>
+       </form>
+    )
+  }
+
   return (
     <div className={styles.subscription}>
-      {
-        !editMode ? <>
-        <div className={styles.icon}>{title[0].toUpperCase()}</div>
-        <div className={styles.title}>{title}</div>
-        <div className={styles.price}>{price}$</div>
-        <div className={styles.date}>{date}-th</div>
-        <button onClick={()=>setEditMode(true)} className={`${styles.hoverButton} ${styles.editButton}`}>
-          <img className={styles.editImage} width='20px' alt="" src={pencil}/></button>
-        <button onClick={()=>removeSub(id)} className={`${styles.hoverButton} ${styles.removeButton}`}>
-          <img className={styles.removeImage} width='20px' alt="" src={bin}/></button>
-        </>
-          : <>
-            <input value={titleEdit} onChange={titleEditHandler} className={styles.title}/>
-            <input value={priceEdit} type="number" onChange={priceEditHandler} className={styles.price}/>
-            <input value={dateEdit} type="number" onChange={dateEditHandler} className={styles.date}/>
-            {/*TODO: добавить галочку и крестик(согласиться и вернуть как было)*/}
-            <button onClick={editButtonHandler} className={styles.submitButton}>
-              <img className={styles.editImage} width='20px' alt="" src={tick}/></button>
-            <button onClick={cancelButtonHandler} className={styles.cancelButton}>
-              <img className={styles.editImage} width='20px' alt="" src={cross}/></button>
-          </>
-      }
-
+      <div className={styles.icon}>{title[0].toUpperCase()}</div>
+      <div className={styles.title}>{title}</div>
+      <div className={styles.price}>{price}$</div>
+      <div className={styles.date}>{date}-th</div>
+      <button onClick={()=>setEditMode(true)} className={`${styles.hoverButton} ${styles.editButton}`}>
+        <img className={styles.editImage} width='20px' alt="" src={pencil}/></button>
+      <button onClick={()=>removeSub(id)} className={`${styles.hoverButton} ${styles.removeButton}`}>
+        <img className={styles.removeImage} width='20px' alt="" src={bin}/></button>
     </div>
+
   )
 }
 
