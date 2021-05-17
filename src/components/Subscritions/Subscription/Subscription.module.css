@@ -40,18 +40,27 @@
     justify-self: end;
     grid-area: date;
 }
-.editImage{
-}
-.removeImage{
-
+.editImage, .submitImage, .cancelImage, .removeImage{
+    position: relative;
+    top: 2px;
+    padding: 1px;
 }
 .editButton{
     cursor: pointer;
     border: none;
+    border-radius: 10%;
     background-color: white;
     opacity: 0;
     visibility: hidden;
     grid-area: edit;
+}
+.editButton:hover{
+    transition: all ease .2s;
+    border-radius: 50%;
+    background-color: black;
+}
+.editButton:hover .editImage{
+    filter: invert(1);
 }
 .removeButton{
     cursor: pointer;
@@ -61,6 +70,14 @@
     visibility: hidden;
     grid-area: remove;
 }
+.removeButton:hover{
+    transition: all ease .2s;
+    border-radius: 50%;
+    background-color: black;
+}
+.removeButton:hover .removeImage{
+    filter: invert(1);
+}
 .submitButton{
     margin-left: 5px;
     cursor: pointer;
@@ -68,6 +85,7 @@
     background-color: #f3f3f3;
     grid-area: edit;
 }
+
 .cancelButton{
     cursor: pointer;
     border: none;

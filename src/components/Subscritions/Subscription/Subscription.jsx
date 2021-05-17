@@ -55,9 +55,9 @@ const Subscription = ({title, price, id, date, removeSub, editSub}) => {
          <input value={dateEdit} type="number" onChange={dateEditHandler} className={styles.date}/>
          {/*TODO: добавить галочку и крестик(согласиться и вернуть как было)*/}
          <button onClick={editButtonHandler} className={styles.submitButton}>
-           <img className={styles.editImage} width='20px' alt="" src={tick}/></button>
+           <img className={styles.submitImage} width='18px' alt="" src={tick}/></button>
          <button onClick={cancelButtonHandler} className={styles.cancelButton}>
-           <img className={styles.editImage} width='20px' alt="" src={cross}/></button>
+           <img className={styles.cancelImage} width='18px' alt="" src={cross}/></button>
        </form>
     )
   }
@@ -69,9 +69,9 @@ const Subscription = ({title, price, id, date, removeSub, editSub}) => {
       <div className={styles.price}>{price}$</div>
       <div className={styles.date}>{date}-th</div>
       <button onClick={()=>setEditMode(true)} className={`${styles.hoverButton} ${styles.editButton}`}>
-        <img className={styles.editImage} width='20px' alt="" src={pencil}/></button>
+        <img className={styles.editImage} width='18px' alt="" src={pencil}/></button>
       <button onClick={()=>removeSub(id)} className={`${styles.hoverButton} ${styles.removeButton}`}>
-        <img className={styles.removeImage} width='20px' alt="" src={bin}/></button>
+        <img className={styles.removeImage} width='18px' alt="" src={bin}/></button>
     </div>
 
   )

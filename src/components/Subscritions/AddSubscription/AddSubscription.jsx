@@ -50,10 +50,10 @@ const AddSubscription = ({addSub,setShowInput}) => {
         <input type="number" value={price} onChange={priceChangeHandler} className={styles.price}/>
         <input type="number" value={date} onChange={dateChangeHandler} className={styles.date}/>
         <button className={styles.addButton} onClick={addSubClickHandler}>
-          <img alt="" width="20px" src={tick}/>
+          <img className={styles.addButtonImage} alt="" width="20px" src={tick}/>
         </button>
         <button className={styles.cancelButton} onClick={hideInputs}>
-          <img src={cross} width="20px" alt=""/>
+          <img className={styles.cancelButtonImage} src={cross} width="17px" alt=""/>
         </button>
       </form>
   )

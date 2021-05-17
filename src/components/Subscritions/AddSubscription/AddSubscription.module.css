@@ -23,14 +23,42 @@
     grid-area: date;
 }
 .addButton{
+    position: relative;
+    left: 3px;
     cursor: pointer;
     border: none;
     background-color: #f3f3f3;
     grid-area: add;
+}
+.addButton:hover{
+    transition: all ease .2s;
+    border-radius: 50%;
+    background-color: black;
+}
+.addButton:hover .addButtonImage{
+    filter: invert(1);
+}
+.addButtonImage{
+    padding: 1px;
+    position: relative;
+    top: 2px;
+}
+.cancelButtonImage{
+    padding: 1px;
+    position: relative;
+    top: 2px;
 }
 .cancelButton{
     cursor: pointer;
     border: none;
     background-color: #f3f3f3;
     grid-area: cancel;
+}
+.cancelButton:hover{
+    transition: all ease .2s;
+    border-radius: 50%;
+    background-color: black;
+}
+.cancelButton:hover .cancelButtonImage{
+    filter: invert(1);
 }
