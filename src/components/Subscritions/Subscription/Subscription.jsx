@@ -5,7 +5,7 @@ import bin from '../../../images/delete.svg'
 import tick from '../../../images/tick.svg'
 import cross from '../../../images/cross.svg'
 
-const Subscription = ({title, price, id, date, removeSub, editSub}) => {
+const Subscription = ({title, price, id, date, removeSub, showInput, editSub, globalEditMode, setGlobalEditMode}) => {
   const [editMode, setEditMode] = React.useState(false);
   const [titleEdit, setTitleEdit] = React.useState(title);
   const [priceEdit, setPriceEdit] = React.useState(price);
@@ -26,9 +26,15 @@ const Subscription = ({title, price, id, date, removeSub, editSub}) => {
     setDateEdit(date)
     setPriceEdit(price)
     setEditMode(false)
+    setGlobalEditMode(false)
   }
 
   const editButtonHandler = () =>{
+      setEditMode(true)
+    setGlobalEditMode(true)
+  }
+
+  const submitButtonHandler = () =>{
     const sendTitle = titleEdit.trim()
 
     const sendPrice = typeof priceEdit === "string" ? +(priceEdit.replace(",", ".")) : priceEdit
@@ -40,11 +46,12 @@ const Subscription = ({title, price, id, date, removeSub, editSub}) => {
 
     editSub(id, sendTitle, sendPrice, sendDate)
     setEditMode(false)
+    setGlobalEditMode(false)
   }
 
   const handleSubmit = (e) =>{
     e.preventDefault();
-    editButtonHandler();
+    submitButtonHandler();
   }
 
   if (editMode){
@@ -54,12 +61,25 @@ const Subscription = ({title, price, id, date, removeSub, editSub}) => {
          <input value={priceEdit} type="number" onChange={priceEditHandler} className={styles.price}/>
          <input value={dateEdit} type="number" onChange={dateEditHandler} className={styles.date}/>
          {/*TODO: добавить галочку и крестик(согласиться и вернуть как было)*/}
-         <button onClick={editButtonHandler} className={styles.submitButton}>
+         <button onClick={submitButtonHandler} className={styles.submitButton}>
            <img className={styles.submitImage} width='18px' alt="" src={tick}/></button>
          <button onClick={cancelButtonHandler} className={styles.cancelButton}>
            <img className={styles.cancelImage} width='18px' alt="" src={cross}/></button>
        </form>
     )
+  }
+
+  const EditButtonClass = () =>{
+    if(globalEditMode || showInput)
+      return styles.editButton
+    else
+      return `${styles.hoverButton} ${styles.editButton}`
+  }
+  const removeButtonClass = () =>{
+    if(globalEditMode || showInput)
+      return styles.removeButton
+    else
+      return `${styles.hoverButton} ${styles.removeButton}`
   }
 
   return (
@@ -68,9 +88,9 @@ const Subscription = ({title, price, id, date, removeSub, editSub}) => {
       <div className={styles.title}>{title}</div>
       <div className={styles.price}>{price}$</div>
       <div className={styles.date}>{date}-th</div>
-      <button onClick={()=>setEditMode(true)} className={`${styles.hoverButton} ${styles.editButton}`}>
+      <button onClick={editButtonHandler} className={EditButtonClass()}>
         <img className={styles.editImage} width='18px' alt="" src={pencil}/></button>
-      <button onClick={()=>removeSub(id)} className={`${styles.hoverButton} ${styles.removeButton}`}>
+      <button onClick={()=>removeSub(id)} className={removeButtonClass()}>
         <img className={styles.removeImage} width='18px' alt="" src={bin}/></button>
     </div>
 

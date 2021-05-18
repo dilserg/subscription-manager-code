@@ -9,18 +9,28 @@ import plus from '../../images/plus.svg'
 
 
 const Subscriptions = ({subscriptions, removeSub,editSub}) => {
-  const [showInput, setShowInput] = React.useState(false);
-  let subs = subscriptions.map(s => <Subscription key={s.id} removeSub={removeSub} id={s.id} title={s.title} price={s.price}
-                                                    date={s.day} editSub={editSub}/>);
+  const [showInput, setShowInput] = React.useState(false)
+  const [globalEditMode, setGlobalEditMode] = React.useState(false);
+  let subs = subscriptions.map(s => <Subscription key={s.id} removeSub={removeSub} id={s.id} title={s.title}
+                                                  price={s.price} date={s.day} editSub={editSub} showInput={showInput}
+                                                  globalEditMode={globalEditMode} setGlobalEditMode={setGlobalEditMode}/>);
+  const showAddButton = () => {
+    if (!globalEditMode && !showInput) {
+      return(
+        <button onClick={()=>setShowInput(true)} className={styles.header_button}>
+          <img alt="" className={styles.plusImage} width="15px" src={plus} />add
+        </button>
+      )
+    }
+  }
+
 
 
   return (
     <div className={styles.subscriptions}>
       <header className={styles.header}>
         <span className={styles.header_title}>Subscriptions:</span>
-        {showInput || <button onClick={()=>setShowInput(true)} className={styles.header_button}>
-          <img alt="" className={styles.plusImage} width="15px" src={plus} />add
-        </button>}
+        {showAddButton()}
       </header>
       <div className={styles.titles}>
         <div className={styles.service}>
@@ -35,7 +45,8 @@ const Subscriptions = ({subscriptions, removeSub,editSub}) => {
       </div>
       <div className={styles.line}/>
       { showInput && <AddSubscription setShowInput={setShowInput}/> }
-      {subs || <div>No subs</div>}
+      {/*TODO добавить див если нет подписок*/}
+      {subs}
     </div>
   )
 }
