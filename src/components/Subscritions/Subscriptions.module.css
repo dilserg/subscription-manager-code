@@ -54,3 +54,13 @@
     background-color: black;
     margin: 10px 0;
 }
+.noSubs{
+    border-radius: 10px;
+    background-color: white;
+    font-weight: 700;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}

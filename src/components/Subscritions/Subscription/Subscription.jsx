@@ -60,7 +60,6 @@ const Subscription = ({title, price, id, date, removeSub, showInput, editSub, gl
          <input value={titleEdit} onChange={titleEditHandler} className={styles.title}/>
          <input value={priceEdit} type="number" onChange={priceEditHandler} className={styles.price}/>
          <input value={dateEdit} type="number" onChange={dateEditHandler} className={styles.date}/>
-         {/*TODO: добавить галочку и крестик(согласиться и вернуть как было)*/}
          <button onClick={submitButtonHandler} className={styles.submitButton}>
            <img className={styles.submitImage} width='18px' alt="" src={tick}/></button>
          <button onClick={cancelButtonHandler} className={styles.cancelButton}>

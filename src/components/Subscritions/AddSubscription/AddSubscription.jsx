@@ -52,7 +52,7 @@ const AddSubscription = ({addSub,setShowInput}) => {
         <button className={styles.addButton} onClick={addSubClickHandler}>
           <img className={styles.addButtonImage} alt="" width="20px" src={tick}/>
         </button>
-        <button className={styles.cancelButton} onClick={hideInputs}>
+        <button type="button" className={styles.cancelButton} onClick={hideInputs}>
           <img className={styles.cancelButtonImage} src={cross} width="17px" alt=""/>
         </button>
       </form>

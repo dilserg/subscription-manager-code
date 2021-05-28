@@ -2,7 +2,8 @@ import React from 'react';
 import styles from './Percentages.module.css'
 import {VictoryAnimation, VictoryLabel, VictoryPie} from "victory"
 
-const Percentages = ({totalIncome, totalPrice}) => {
+const Percentages = ({totalIncome, totalPrice, wantToSpend}) => {
+  const wantToSpendPercentages = Math.floor(wantToSpend/totalIncome *100) || 0
 
   const getPercentages = (totalIncome, totalPrice) =>{
     let percents;
@@ -13,14 +14,13 @@ const Percentages = ({totalIncome, totalPrice}) => {
       percents = (totalPrice/ totalIncome) * 100;
     }
 
-    return percents;
+    return percents || 0;
   }
 
   const getData = (totalIncome,totalPrice) =>{
     let percents = getPercentages(totalIncome, totalPrice);
     return [{x: 1, y:percents}, {x: 2, y: 100 - percents}];
   }
-  // TODO:Добавить рамку для кружка
   return (
     <div className={styles.percentages}>
       <div className={styles.text}>On subscriptions, you spend</div>
@@ -35,7 +35,7 @@ const Percentages = ({totalIncome, totalPrice}) => {
           labels={() => null}
           style={{
             data: { fill: ({ datum }) => {
-                const color = datum.y < 50 ? "green" : "red";
+                const color = datum.y < wantToSpendPercentages ? "green" : "red";
                 return datum.x === 1 ? color : "transparent";
               }
             }

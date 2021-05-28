@@ -15,7 +15,6 @@ const initialState = {
 const subscriptionsReducer = (state = initialState, action) =>{
   switch (action.type){
     case ADD_SUB:
-      console.log(state.totalPrice)
       return {
         ...state,
         nextID:state.nextID+1,

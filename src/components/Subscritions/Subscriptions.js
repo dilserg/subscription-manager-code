@@ -6,6 +6,7 @@ import Subscription from "./Subscription/Subscription"
 import {editSubAC, removeSubAC} from "../../state/SubscriptionsReducer"
 import {getSubs} from "../../state/selectors/subscriptionsSelector"
 import plus from '../../images/plus.svg'
+import NoSubs from "./NoSubs"
 
 
 const Subscriptions = ({subscriptions, removeSub,editSub}) => {
@@ -45,11 +46,12 @@ const Subscriptions = ({subscriptions, removeSub,editSub}) => {
       </div>
       <div className={styles.line}/>
       { showInput && <AddSubscription setShowInput={setShowInput}/> }
-      {/*TODO добавить див если нет подписок*/}
+      {((subs.length === 0) && !showInput) && <NoSubs/>}
       {subs}
     </div>
   )
 }
+
 
 const mapStateToProps = state => ({
   subscriptions: getSubs(state)
