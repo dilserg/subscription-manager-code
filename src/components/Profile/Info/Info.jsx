@@ -18,7 +18,7 @@ const Info = ({ name, photo, setShowSettings, setShowStats, showStats }) => {
           className={styles.ShowButton}
         >
           <p className={styles.buttonText}>
-            {showStats ? 'Hide stats' : 'Show stats'}
+            {showStats ? 'Hide' : 'Show more info'}
           </p>
         </button>
         <button

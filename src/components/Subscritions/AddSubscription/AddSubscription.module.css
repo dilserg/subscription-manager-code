@@ -62,7 +62,7 @@
 .cancelButton:hover .cancelButtonImage {
   filter: invert(1);
 }
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 500px) {
   .price {
     justify-self: center;
     width: 3.5rem;

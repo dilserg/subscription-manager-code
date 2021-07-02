@@ -4,13 +4,30 @@
   display: grid;
   grid-template-rows: 100px minmax(1fr, 1000px) minmax(1fr, 1000px);
 }
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 500px) {
   .profile {
     padding: 0px;
     grid-row: 1/2;
     height: auto;
-    display: grid;
     grid-template-rows: 100px auto;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/* @media screen and (max-width: 768px) and (min-width: 501px) {
+  .profile {
+    padding: 30px;
+    grid-row: 1/2;
+    height: auto;
+    grid-template-rows: 300px;
+    grid-template-columns: 300px 1fr 1fr;
+  }
+} */
+@media screen and (max-width: 768px) and (min-width: 501px) {
+  .profile {
+    padding: 30px;
+    grid-row: 1/2;
+    height: auto;
+    grid-template-rows: 100px 200px;
     grid-template-columns: 1fr 1fr;
   }
 }

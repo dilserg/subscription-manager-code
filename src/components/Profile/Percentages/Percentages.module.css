@@ -9,9 +9,14 @@
   top: 30px;
   text-align: center;
 }
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 500px) {
   .percentages {
     margin-right: 5px;
     height: 230px;
+  }
+}
+@media screen and (max-width: 768px) and (min-width: 501px) {
+  .percentages {
+    grid-row: 1/3;
   }
 }

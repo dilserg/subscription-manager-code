@@ -71,7 +71,7 @@
   height: calc(100% - 80px);
   overflow-y: auto;
 }
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 500px) {
   .header {
     height: 50px;
   }
@@ -79,10 +79,10 @@
     padding: 0 5px;
   }
   .SubsList {
-    height: calc(100% - 200px);
+    height: calc(100% - 260px);
   }
   .SubsListSmall {
-    height: calc(100% - 440px);
+    height: calc(100% - 500px);
   }
   .titles {
     font-size: 15px;

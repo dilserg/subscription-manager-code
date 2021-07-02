@@ -25,11 +25,16 @@ body {
   display: grid;
   grid-template-columns: 5fr 2fr;
 }
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 500px) {
   .app {
     width: auto;
-    display: grid;
     grid-template-rows: 1fr auto;
     grid-template-columns: 1fr;
+  }
+}
+@media screen and (max-width: 768px) and (min-width: 501px) {
+  .app {
+    grid-template-rows: 300px auto;
+    grid-template-columns: auto;
   }
 }

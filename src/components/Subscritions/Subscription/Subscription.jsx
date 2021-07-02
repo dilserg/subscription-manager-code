@@ -65,7 +65,7 @@ const Subscription = ({title, price, id, date, removeSub, showInput, editSub, gl
          <button onClick={cancelButtonHandler} className={styles.cancelButton}>
            <img className={styles.cancelImage} width='18px' alt="" src={cross}/></button>
        </form>
-    )
+    ) 
   }
 
   const EditButtonClass = () =>{

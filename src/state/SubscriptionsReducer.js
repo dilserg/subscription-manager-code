@@ -35,8 +35,8 @@ const initialState = {
     { id: 28, title: 'Youtube', price: 5, day: 1 },
     { id: 29, title: 'Spotify', price: 8, day: 1 },
   ],
-  totalPrice: 28,
-  nextID: 3,
+  totalPrice: 280,
+  nextID: 30,
 };
 
 const subscriptionsReducer = (state = initialState, action) => {
@@ -74,7 +74,6 @@ const subscriptionsReducer = (state = initialState, action) => {
       };
 
     case EDIT_SUB:
-      debugger;
       const obj = state.subscriptions.find((s) => s.id === action.id);
       const index = state.subscriptions.indexOf(obj);
       const difference = action.price - obj.price;

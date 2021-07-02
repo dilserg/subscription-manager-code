@@ -5,7 +5,7 @@ import Subscriptions from './Subscritions/Subscriptions';
 import Settings from './Settings/Settings';
 
 const App = () => {
-  let isMobile = window.screen.width < 1250;
+  let isMobile = window.screen.width < 500;
 
   const [showStats, setShowStats] = React.useState(!isMobile);
 

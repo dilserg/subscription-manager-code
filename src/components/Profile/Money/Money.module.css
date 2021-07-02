@@ -22,14 +22,13 @@
   font-size: 40px;
   font-weight: 700;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 500px) {
   .money {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 10px 0 0;
   }
-
   .line {
     margin: 0 0 5px 0;
     height: 1px;
@@ -49,6 +48,40 @@
   }
   .number {
     font-size: 20px;
+    font-weight: 700;
+  }
+}
+@media screen and (max-width: 768px) and (min-width: 501px) {
+  .money {
+    margin: 0;
+    grid-row: 2/3;
+    grid-column: 1/2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .wrapper:first-child {
+    margin-right: 10px;
+  }
+  .moneyWrapper {
+    gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+  }
+  .wrapper p {
+    line-height: 60px;
+    margin: 0 0 10px;
+  }
+  .line {
+    height: 100%;
+    width: 1px;
+  }
+  .title {
+    font-size: 30px;
+    font-weight: 600;
+  }
+  .number {
+    font-size: 60px;
     font-weight: 700;
   }
 }
