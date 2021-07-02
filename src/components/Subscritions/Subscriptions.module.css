@@ -1,66 +1,94 @@
-.subscriptions{
-    padding: 60px 70px;
+.subscriptions {
+  position: relative;
+  height: 100vh;
+  padding: 60px 70px;
 }
-.header{
-    display: flex;
-    margin-bottom: 30px;
-    justify-content: space-between;
+.header {
+  height: 75px;
+  display: flex;
+  justify-content: space-between;
 }
-.header_title{
-    font-size: 20px;
+.header_title {
+  font-size: 20px;
 }
-.plusImage{
-    transition: all ease 0.2s;
-    margin-right: 2px;
+.plusImage {
+  transition: all ease 0.2s;
+  margin-right: 2px;
 }
-.header_button{
-    transition: all ease 0.2s;
-    border-color: black;
-    padding-top: 5px;
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-    width: 60px;
-    height: 30px;
-    background-color: #f3f3f3;
-    border-radius: 7px;
+.header_button {
+  transition: all ease 0.2s;
+  border-color: black;
+  padding-top: 5px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  width: 60px;
+  height: 30px;
+  background-color: #f3f3f3;
+  border-radius: 7px;
 }
-.header_button:hover{
-    background-color: black;
-    color: white;
+.header_button:hover {
+  background-color: black;
+  color: white;
 }
-.header_button:hover .plusImage{
-    filter: invert(1);
+.header_button:hover .plusImage {
+  filter: invert(1);
 }
-.titles{
-    padding: 0 20px;
+.titles {
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 60px 1fr 1fr 1fr 40px;
+  grid-template-areas: '. service price day .';
+}
+.day {
+  justify-self: end;
+  grid-area: day;
+}
+.price {
+  justify-self: center;
+  grid-area: price;
+}
+.service {
+  grid-area: service;
+}
+.line {
+  height: 1px;
+  background-color: black;
+  margin: 10px 0;
+}
+.noSubs {
+  border-radius: 10px;
+  background-color: white;
+  font-weight: 700;
+  font-size: 30px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+.SubsList {
+  height: calc(100% - 80px);
+  overflow-y: auto;
+}
+@media screen and (max-width: 1250px) {
+  .header {
+    height: 50px;
+  }
+  .subscriptions {
+    padding: 0 5px;
+  }
+  .SubsList {
+    height: calc(100% - 200px);
+  }
+  .SubsListSmall {
+    height: calc(100% - 440px);
+  }
+  .titles {
+    font-size: 15px;
+    padding: 0;
     display: grid;
-    grid-template-columns: 60px 1fr 1fr 1fr 40px;
-    grid-template-areas: ". service price day .";
-}
-.day{
-    justify-self: end;
-    grid-area: day;
-}
-.price{
-    justify-self: center;
-    grid-area: price;
-}
-.service{
-    grid-area: service;
-}
-.line{
-    height: 1px;
-    background-color: black;
-    margin: 10px 0;
-}
-.noSubs{
-    border-radius: 10px;
-    background-color: white;
-    font-weight: 700;
-    font-size: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
+    grid-template-columns: 40px 1fr 1fr 1fr 40px;
+    grid-template-areas: '. service price day .';
+  }
 }

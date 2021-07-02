@@ -7,8 +7,10 @@ import {getName, getTotalIncome, getWantToSpend} from "../../state/selectors/pro
 
 const Settings = ({setShowSettings, updateProfile, initialName, totalIncome,wantToSpend}) => {
   const [name, setName] = React.useState(initialName)
-  const [income, setIncome] = React.useState(totalIncome)
-  const [spend, setSpend] = React.useState(wantToSpend)
+  const [income, setIncome] = React.useState(totalIncome.toString())
+  const [spend, setSpend] = React.useState(wantToSpend.toString())
+  const [nameError, setNameError] = React.useState(false);
+  const [numberError, setNumberError] = React.useState(false);
 
   const backgroundClickHandler = (e) =>{
     if(e.target.id === "background"){
@@ -18,7 +20,7 @@ const Settings = ({setShowSettings, updateProfile, initialName, totalIncome,want
 
   const nameChangeHandler = (e) =>{
     setName(e.target.value)
-  }
+  } 
   const incomeChangeHandler = (e) =>{
     setIncome(e.target.value)
   }
@@ -31,8 +33,13 @@ const Settings = ({setShowSettings, updateProfile, initialName, totalIncome,want
     const sendIncome = +(income.replace(",", "."))
     const sendSpend = +(spend.replace(",", "."))
 
-    if (sendName === "" || sendIncome <= 0 || sendSpend <= 0 || sendIncome <= sendSpend)
-      return
+    if (sendName === "" ){
+      return setNameError(true);
+    }
+    if (sendIncome <= 0 || sendSpend <= 0 || sendIncome <= sendSpend){
+      return setNumberError(true);
+    }
+
 
     updateProfile(name,income,spend)
     setShowSettings(false)
@@ -45,6 +52,13 @@ const Settings = ({setShowSettings, updateProfile, initialName, totalIncome,want
     e.preventDefault()
   }
 
+
+  const nameClass = () => nameError ? `${styles.nameInput} ${styles.error}` : styles.nameInput
+
+  const incomeClass = () => numberError ? `${styles.incomeInput} ${styles.error}` : styles.incomeInput
+
+  const spendClass = () => numberError ? `${styles.wantToSpendInput} ${styles.error}` : styles.wantToSpendInput
+
   return (
     <div className={styles.background} id="background" onClick={backgroundClickHandler}>
       <form onSubmit={submitFormHandler} className={styles.settingsContent}>
@@ -52,11 +66,18 @@ const Settings = ({setShowSettings, updateProfile, initialName, totalIncome,want
           <img className={styles.closeImage} alt="" src={cross} />
         </button>
         <div>Name:</div>
-        <input value={name} onChange={nameChangeHandler} className={styles.nameInput}/>
+        <input value={name} onFocus={()=>setNameError(false)} onChange={nameChangeHandler}
+               className={nameClass()}/>
         <div>Income:</div>
-        <input value={income} onChange={incomeChangeHandler} type="number" className={styles.incomeInput}/>
+        <input value={income} onChange={incomeChangeHandler} type="number" onFocus={()=>setNumberError(false)}
+               className={incomeClass()}/>
         <div>Want to spend:</div>
-        <input value={spend} onChange={spendChangeHandler} type="number" className={styles.wantToSpendInput}/>
+        <input value={spend} onChange={spendChangeHandler} type="number" onFocus={()=>setNumberError(false)}
+               className={spendClass()}/>
+        {
+          numberError &&
+          <div className={styles.errorText}>Income must be greater than "want to spend"</div>
+        }
         <button onClick={submitButtonHandler} className={styles.submitButton}>Submit</button>
       </form>
     </div>

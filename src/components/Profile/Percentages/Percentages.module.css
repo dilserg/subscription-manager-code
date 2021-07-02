@@ -1,10 +1,17 @@
-.percentages{
-    background-color: white;
-    border-radius: 10px;
-    border: gray 5px solid;
+.percentages {
+  background-color: white;
+  border-radius: 10px;
+  border: gray 5px solid;
+  margin-bottom: 10px;
 }
-.text{
-    position: relative;
-    top: 30px;
-    text-align: center;
+.text {
+  position: relative;
+  top: 30px;
+  text-align: center;
+}
+@media screen and (max-width: 1250px) {
+  .percentages {
+    margin-right: 5px;
+    height: 230px;
+  }
 }

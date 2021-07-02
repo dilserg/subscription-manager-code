@@ -1,101 +1,139 @@
-.subscription{
-    padding: 0 20px;
+.subscription {
+  padding: 0 20px;
+  border-radius: 5px;
+  display: grid;
+  align-content: center;
+  height: 40px;
+  margin-bottom: 10px;
+  grid-template-areas: 'icon title price date edit . remove';
+  grid-template-columns: 60px 1fr 1fr 1fr 25px 5px 25px;
+}
+.subscription:last-child {
+  margin-bottom: 0;
+}
+.subscription:hover {
+  background-color: white;
+}
+.subscription button {
+  box-sizing: border-box;
+}
+.icon {
+  font-weight: 700;
+  line-height: 23px;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  background-color: black;
+  width: 22px;
+  grid-area: icon;
+}
+.title {
+  grid-area: title;
+}
+.price {
+  text-align: center;
+  justify-self: center;
+  width: 4rem;
+  grid-area: price;
+}
+.date {
+  text-align: center;
+  width: 4rem;
+  justify-self: end;
+  grid-area: date;
+}
+.subscription input {
+  outline: none;
+  border-radius: 3px;
+  padding: 1px;
+  border: solid black 1px;
+}
+.editImage,
+.submitImage,
+.cancelImage,
+.removeImage {
+  position: relative;
+  top: 2px;
+  padding: 1px;
+}
+.editButton {
+  cursor: pointer;
+  border: none;
+  border-radius: 10%;
+  background-color: white;
+  opacity: 0;
+  visibility: hidden;
+  grid-area: edit;
+}
+.editButton:hover {
+  transition: all ease 0.2s;
+  border-radius: 50%;
+  background-color: black;
+}
+.editButton:hover .editImage {
+  filter: invert(1);
+}
+.removeButton {
+  cursor: pointer;
+  border: none;
+  background-color: white;
+  opacity: 0;
+  visibility: hidden;
+  grid-area: remove;
+}
+.removeButton:hover {
+  transition: all ease 0.2s;
+  border-radius: 50%;
+  background-color: black;
+}
+.removeButton:hover .removeImage {
+  filter: invert(1);
+}
+.submitButton {
+  margin-left: 5px;
+  cursor: pointer;
+  border: none;
+  background-color: #f3f3f3;
+  grid-area: edit;
+}
+
+.cancelButton {
+  cursor: pointer;
+  border: none;
+  background-color: #f3f3f3;
+  grid-area: remove;
+}
+.subscription:hover .hoverButton {
+  opacity: 1;
+  visibility: visible;
+}
+.subscription:hover .submitButton,
+.subscription:hover .cancelButton {
+  background-color: white;
+}
+@media screen and (max-width: 1250px) {
+  .subscription input {
+    background-color: #f3f3f3;
+  }
+  .subscription:hover {
+    background-color: #f3f3f3;
+  }
+  .title {
+    width: 5rem;
+  }
+  .subscription {
+    padding: 0;
     border-radius: 5px;
     display: grid;
     align-content: center;
     height: 40px;
     margin-bottom: 10px;
-    grid-template-areas: "icon title price date edit . remove";
-    grid-template-columns: 60px 1fr 1fr 1fr 25px 5px 25px;
-}
-.subscription:hover{
-    background-color: white;
-}
-.subscription button{
-    box-sizing: border-box;
-
-}
-.icon{
-    font-weight: 700;
-    line-height: 23px;
-    border-radius: 5px;
-    color: white;
-    text-align: center;
-    background-color: black;
-    width: 22px;
-    grid-area: icon;
-}
-.title{
-    grid-area: title;
-}
-.price{
-    text-align: center;
-    justify-self: center;
-    width: 3rem;
-    grid-area: price;
-}
-.date{
-    text-align: center;
-    width: 4rem;
-    justify-self: end;
-    grid-area: date;
-}
-.editImage, .submitImage, .cancelImage, .removeImage{
-    position: relative;
-    top: 2px;
-    padding: 1px;
-}
-.editButton{
-    cursor: pointer;
-    border: none;
-    border-radius: 10%;
-    background-color: white;
-    opacity: 0;
-    visibility: hidden;
-    grid-area: edit;
-}
-.editButton:hover{
-    transition: all ease .2s;
-    border-radius: 50%;
-    background-color: black;
-}
-.editButton:hover .editImage{
-    filter: invert(1);
-}
-.removeButton{
-    cursor: pointer;
-    border: none;
-    background-color: white;
-    opacity: 0;
-    visibility: hidden;
-    grid-area: remove;
-}
-.removeButton:hover{
-    transition: all ease .2s;
-    border-radius: 50%;
-    background-color: black;
-}
-.removeButton:hover .removeImage{
-    filter: invert(1);
-}
-.submitButton{
-    margin-left: 5px;
-    cursor: pointer;
-    border: none;
-    background-color: #f3f3f3;
-    grid-area: edit;
-}
-
-.cancelButton{
-    cursor: pointer;
-    border: none;
-    background-color: #f3f3f3;
-    grid-area: remove;
-}
-.subscription:hover .hoverButton{
+    grid-template-areas: 'icon title price date edit . remove';
+    grid-template-columns: 40px 1fr 1fr 1fr 25px 5px 25px;
+  }
+  .hoverButton {
     opacity: 1;
     visibility: visible;
-}
-.subscription:hover .submitButton,.subscription:hover .cancelButton{
-    background-color: white;
+    background-color: #f3f3f3;
+  }
 }

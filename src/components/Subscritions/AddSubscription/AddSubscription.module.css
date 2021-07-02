@@ -1,64 +1,80 @@
-.subscription{
-    padding: 0 20px;
-    display: grid;
-    grid-template-areas: "icon title price date add . cancel";
-    grid-template-columns: 60px 1fr 1fr 1fr 25px 5px 25px;
+.subscription {
+  padding: 0 20px;
+  display: grid;
+  grid-template-areas: 'icon title price date add . cancel';
+  grid-template-columns: 60px 1fr 1fr 1fr 25px 5px 25px;
 }
-.icon{
-    grid-area: icon;
+.icon {
+  grid-area: icon;
 }
-.title{
-    grid-area: title;
+.title {
+  grid-area: title;
 }
-.price{
-    text-align: center;
+.price {
+  text-align: center;
+  justify-self: center;
+  width: 3rem;
+  grid-area: price;
+}
+.date {
+  text-align: center;
+  width: 4rem;
+  justify-self: end;
+  grid-area: date;
+}
+.addButton {
+  position: relative;
+  left: 3px;
+  cursor: pointer;
+  border: none;
+  background-color: #f3f3f3;
+  grid-area: add;
+}
+.addButton:hover {
+  transition: all ease 0.2s;
+  border-radius: 50%;
+  background-color: black;
+}
+.addButton:hover .addButtonImage {
+  filter: invert(1);
+}
+.addButtonImage {
+  padding: 1px;
+  position: relative;
+  top: 2px;
+}
+.cancelButtonImage {
+  padding: 1px;
+  position: relative;
+  top: 2px;
+}
+.cancelButton {
+  cursor: pointer;
+  border: none;
+  background-color: #f3f3f3;
+  grid-area: cancel;
+}
+.cancelButton:hover {
+  transition: all ease 0.2s;
+  border-radius: 50%;
+  background-color: black;
+}
+.cancelButton:hover .cancelButtonImage {
+  filter: invert(1);
+}
+@media screen and (max-width: 1250px) {
+  .price {
     justify-self: center;
-    width: 3rem;
-    grid-area: price;
-}
-.date{
-    text-align: center;
+    width: 3.5rem;
+  }
+  .date {
+    width: 3.5rem;
+  }
+  .title {
     width: 4rem;
-    justify-self: end;
-    grid-area: date;
-}
-.addButton{
-    position: relative;
-    left: 3px;
-    cursor: pointer;
-    border: none;
-    background-color: #f3f3f3;
-    grid-area: add;
-}
-.addButton:hover{
-    transition: all ease .2s;
-    border-radius: 50%;
-    background-color: black;
-}
-.addButton:hover .addButtonImage{
-    filter: invert(1);
-}
-.addButtonImage{
-    padding: 1px;
-    position: relative;
-    top: 2px;
-}
-.cancelButtonImage{
-    padding: 1px;
-    position: relative;
-    top: 2px;
-}
-.cancelButton{
-    cursor: pointer;
-    border: none;
-    background-color: #f3f3f3;
-    grid-area: cancel;
-}
-.cancelButton:hover{
-    transition: all ease .2s;
-    border-radius: 50%;
-    background-color: black;
-}
-.cancelButton:hover .cancelButtonImage{
-    filter: invert(1);
+  }
+  .subscription {
+    padding: 0;
+    grid-template-columns: 40px 1fr 1fr 1fr 25px 5px 25px;
+  }
 }

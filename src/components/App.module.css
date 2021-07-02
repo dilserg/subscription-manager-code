@@ -1,26 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-*{
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
-input[type=number] {
-    -moz-appearance: textfield;
+input[type='number'] {
+  -moz-appearance: textfield;
 }
-body{
-    overflow: hidden;
-    background-color: #f3f3f3;
+body {
+  overflow: hidden;
+  background-color: #f3f3f3;
 }
-.app{
-    width: 1200px;
-    margin: 0 auto;
+
+.app {
+  width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+}
+@media screen and (max-width: 1250px) {
+  .app {
+    width: auto;
     display: grid;
-    grid-template-columns: 5fr 2fr;
+    grid-template-rows: 1fr auto;
+    grid-template-columns: 1fr;
+  }
 }
